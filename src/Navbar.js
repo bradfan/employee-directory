@@ -1,8 +1,13 @@
 import React from "react";
 
+const styles = {
+  background: "light green",
+  justifyContent: "center",
+};
+
 function Navbar() {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav style={styles} className="navbar navbar-light bg-light">
       <div className="container-fluid">
         <form className="d-flex">
           <input
