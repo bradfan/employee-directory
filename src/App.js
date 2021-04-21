@@ -1,29 +1,33 @@
 import React, { useState } from "react";
-import API from './api';
+import API from "./api";
 import Card from "./Card";
 
 function App() {
-  const [name, setName] = useState('');
+  const [name, setName] = useState([]);
   const [users, setUsers] = useState([]);
-  // name => 'Dave'
 
   React.useEffect(() => {
-    setName(""); // name => 'David'
-    API.getUsers().then(({data}) => {
-      console.log(data)
-      setUsers(data.results)
-    })
-  }, [])
+    setName("");
+    API.getUsers().then(({ data }) => {
+      console.log(data);
+      setUsers(data.results);
+    });
+  }, []);
 
-  return users.map(user => (
-<Card empName = {name}
-    role = ""
-    phoneNumber = ""
-    email = ""
-    dob = ""/>
-  ))
-    
-  ;
+  return (
+    <div>
+      <h1>Title</h1>
+      {users.map((user) => (
+        <Card
+          empName={user.name}
+          phoneNumber={user.cell}
+          email={user.email}
+          dob={user.dob.date.slice(0, 10)}
+          image={user.picture.thumbnail}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default App;
