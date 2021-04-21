@@ -3,12 +3,12 @@ import API from './api';
 import Card from "./Card";
 
 function App() {
-  const [name, setName] = useState('Dave');
+  const [name, setName] = useState('');
   const [users, setUsers] = useState([]);
   // name => 'Dave'
 
   React.useEffect(() => {
-    setName('David'); // name => 'David'
+    setName(""); // name => 'David'
     API.getUsers().then(({data}) => {
       console.log(data)
       setUsers(data.results)
@@ -19,7 +19,8 @@ function App() {
 <Card empName = {name}
     role = ""
     phoneNumber = ""
-    email = ""/>
+    email = ""
+    dob = ""/>
   ))
     
   ;

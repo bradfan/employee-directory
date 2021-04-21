@@ -15,6 +15,7 @@ function Card(props) {
         <li className="list-group-item">Role: {props.role}</li>
         <li className="list-group-item">Phone: {props.phoneNumber}</li>
         <li className="list-group-item">email: {props.email}</li>
+        <li className="list-group-item">DOB: {props.dob}</li>
       </ul>
     </div>
   );
