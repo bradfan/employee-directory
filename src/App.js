@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import API from "./api";
 import Card from "./Card";
+import Navbar from "./Navbar";
+
 
 function App() {
   const [name, setName] = useState([]);
@@ -16,7 +18,7 @@ function App() {
 
   return (
     <div>
-      <h1>Title</h1>
+      <Navbar></Navbar>
       {users.map((user) => (
         <Card
           empName={user.name}
