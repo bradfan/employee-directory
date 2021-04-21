@@ -1,24 +1,28 @@
-
+import React, { useState } from "react";
+import API from './api';
+import Card from "./Card";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [name, setName] = useState('Dave');
+  const [users, setUsers] = useState([]);
+  // name => 'Dave'
+
+  React.useEffect(() => {
+    setName('David'); // name => 'David'
+    API.getUsers().then(({data}) => {
+      console.log(data)
+      setUsers(data.results)
+    })
+  }, [])
+
+  return users.map(user => (
+<Card empName = {name}
+    role = ""
+    phoneNumber = ""
+    email = ""/>
+  ))
+    
+  ;
 }
 
 export default App;
