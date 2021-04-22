@@ -1,15 +1,21 @@
 import React from "react";
 
 const styles = {
-  background: "light green",
-  justifyContent: "center",
+  background: "yellow",
+  margin: "auto",
+  border: "3px solid green",
+  borderRadius: "10px",
+  padding: "10px",
+  textAlign: "center"
+
+ 
 };
 
 function Navbar() {
   return (
-    <nav style={styles} className="navbar navbar-light bg-light">
-      <div className="container-fluid">
-        <form className="d-flex">
+    <nav  className="navbar navbar-light bg-light">
+      <div  className="container-fluid">
+        <form style={styles} className="d-flex">
           <input
             className="form-control me-2"
             type="search"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import API from "./api";
 import Card from "./Card";
 import Navbar from "./Navbar";
+import Header from "./Header";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div>
+      <Header></Header>
       <Navbar></Navbar>
       {users.map((user) => (
         <Card
