@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import API from "./api";
+import API from "../utils/api";
 import Card from "./Card";
 import Navbar from "./Navbar";
 import Header from "./Header";
@@ -17,21 +17,12 @@ function App() {
     });
   }, []);
 
-  //useEffect(() => {
-    // function handleInputChange(data) {
-    //   setSearch(data.search);
-    // }
-   // console.log("hello")
- // });
-
   const handleInputChange = useCallback((event) => {
     event.preventDefault();
-    console.log(event.target)
-    console.log(event.target.value)
+    console.log(event.target);
+    console.log(event.target.value);
     // set states for users and search
-  })
-
-
+  });
 
   return (
     <div>
