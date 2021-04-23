@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import API from "./api";
 import Card from "./Card";
 import Navbar from "./Navbar";
@@ -6,16 +6,34 @@ import Header from "./Header";
 
 
 function App() {
-  const [name, setName] = useState([]);
+  // const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
+  
 
   React.useEffect(() => {
-    setName("");
+    // setName("");
     API.getUsers().then(({ data }) => {
       console.log(data);
       setUsers(data.results);
     });
   }, []);
+
+
+
+  //   //set up your filter function here, ex handleSearch// which will update our state
+//   event.target.name: event.target.value
+//   setName(event.target.value)
+//   search: the value in the input box
+// //then pass it as a props inside of Navbar
+
+  // handleInputChange = event => {
+  //   setName(event.target.value);
+  //   setUsers(event.target.value)
+  //   setState({
+      
+  //   })
+  // }
+
 
   return (
     <div>
@@ -33,5 +51,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

@@ -6,23 +6,27 @@ const styles = {
   border: "3px solid green",
   borderRadius: "10px",
   padding: "10px",
-  textAlign: "center"
-
- 
+  textAlign: "center",
 };
 
-function Navbar() {
+function Navbar(props) {
   return (
-    <nav  className="navbar navbar-light bg-light">
-      <div  className="container-fluid">
+    <nav className="navbar navbar-light bg-light">
+      <div className="container-fluid">
         <form style={styles} className="d-flex">
           <input
+            onChange={props.handleInputChange}
+            value={props.search}
+            name="text"
             className="form-control me-2"
-            type="search"
+            type="text"
             placeholder="Search"
             aria-label="Search"
           />
-          <button className="btn btn-outline-success" type="submit">
+
+          <button 
+          onClick={props.handleFormSubmit}
+          className="btn btn-outline-success" type="submit">
             Search
           </button>
         </form>

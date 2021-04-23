@@ -3,7 +3,7 @@ const styles = {
   display: "flex",
   flexDirection: "row",
   float: "left",
-  width: "25%",
+  width: "33%",
   padding: "0 10px",
   border: "3px solid green",
   borderRadius: "10px",
