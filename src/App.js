@@ -1,14 +1,13 @@
-import React, {useState} from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import API from "./api";
 import Card from "./Card";
 import Navbar from "./Navbar";
 import Header from "./Header";
 
-
 function App() {
   // const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
-  
+  const [search, setSearch] = useState([]);
 
   React.useEffect(() => {
     // setName("");
@@ -18,27 +17,26 @@ function App() {
     });
   }, []);
 
+  //useEffect(() => {
+    // function handleInputChange(data) {
+    //   setSearch(data.search);
+    // }
+   // console.log("hello")
+ // });
 
+  const handleInputChange = useCallback((event) => {
+    event.preventDefault();
+    console.log(event.target)
+    console.log(event.target.value)
+    // set states for users and search
+  })
 
-  //   //set up your filter function here, ex handleSearch// which will update our state
-//   event.target.name: event.target.value
-//   setName(event.target.value)
-//   search: the value in the input box
-// //then pass it as a props inside of Navbar
-
-  // handleInputChange = event => {
-  //   setName(event.target.value);
-  //   setUsers(event.target.value)
-  //   setState({
-      
-  //   })
-  // }
 
 
   return (
     <div>
       <Header></Header>
-      <Navbar></Navbar>
+      <Navbar handleInputChange={handleInputChange}></Navbar>
       {users.map((user) => (
         <Card
           empName={user.name}
@@ -52,3 +50,9 @@ function App() {
   );
 }
 export default App;
+
+//   //set up your filter function here, ex handleSearch// which will update our state
+//   event.target.name: event.target.value
+//   setName(event.target.value)
+//   search: the value in the input box
+// //then pass it as a props inside of Navbar
