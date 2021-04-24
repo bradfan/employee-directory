@@ -1,19 +1,18 @@
-import React, { useState, useEffect, useCallback } from "react";
-import API from "../utils/api";
+import React, { useState, useCallback } from "react";
+import API from "./utils/api";
 import Card from "./Card";
 import Navbar from "./Navbar";
 import Header from "./Header";
 
 function App() {
-  // const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [originalUsers, setOriginalUsers] = useState([]);
 
   React.useEffect(() => {
-    // setName("");
     API.getUsers().then(({ data }) => {
       console.log(data);
       setUsers(data.results);
+      setOriginalUsers(data.results);
     });
   }, []);
 
@@ -21,13 +20,43 @@ function App() {
     event.preventDefault();
     console.log(event.target);
     console.log(event.target.value);
-    // set states for users and search
+
+    const updatedUsers = originalUsers.filter((user) => {
+      if (
+        (user.name.first + " " + user.name.last).indexOf(event.target.value) !=
+        -1
+      ) {
+        return true;
+      }
+      return false;
+    });
+    setUsers([...updatedUsers]);
+  });
+
+  const handleSort = useCallback((event) => {
+    event.preventDefault();
+
+    const sortDate = originalUsers.sort((userA, userB) => {
+      const userADOB = new Date(userA.dob.date);
+      const userBDOB = new Date(userB.dob.date);
+
+      if (userADOB < userBDOB) {
+        return -1;
+      }
+      return 1;
+    });
+
+    console.log(event.target.value);
+    setUsers([...sortDate]);
   });
 
   return (
     <div>
       <Header></Header>
-      <Navbar handleInputChange={handleInputChange}></Navbar>
+      <Navbar
+        handleInputChange={handleInputChange}
+        handleSort={handleSort}
+      ></Navbar>
       {users.map((user) => (
         <Card
           empName={user.name}

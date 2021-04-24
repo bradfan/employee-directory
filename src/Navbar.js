@@ -15,19 +15,27 @@ function Navbar(props) {
       <div className="container-fluid">
         <form style={styles} className="d-flex">
           <input
-            onChange={props.handleInputChange}
+            onChange={(event) => {
+              console.log(event.target.value);
+              props.handleInputChange(event);
+            }}
             value={props.search}
             name="text"
             className="form-control me-2"
             type="text"
-            placeholder="Search"
+            placeholder="Input Name Here"
             aria-label="Search"
           />
-
+           <button className="btn btn-outline-success" type="submit">
+            Search Name
+          </button>
           <button 
-          onClick={props.handleFormSubmit}
+            onClick={(event) => {
+            console.log(event.target.value);
+            props.handleSort(event);
+          }}
           className="btn btn-outline-success" type="submit">
-            Search
+            Sort by DOB
           </button>
         </form>
       </div>
