@@ -23,7 +23,7 @@ function App() {
 
     const updatedUsers = originalUsers.filter((user) => {
       if (
-        (user.name.first + " " + user.name.last).indexOf(event.target.value) !=
+        (user.name.first + " " + user.name.last).indexOf(event.target.value) !==
         -1
       ) {
         return true;
@@ -70,9 +70,3 @@ function App() {
   );
 }
 export default App;
-
-//   //set up your filter function here, ex handleSearch// which will update our state
-//   event.target.name: event.target.value
-//   setName(event.target.value)
-//   search: the value in the input box
-// //then pass it as a props inside of Navbar

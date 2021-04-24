@@ -7,7 +7,7 @@ const styles = {
   padding: "0 10px",
   border: "3px solid green",
   borderRadius: "10px",
-  padding: "10px",
+  
 };
 
 function Card(props) {
