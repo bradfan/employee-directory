@@ -29,7 +29,11 @@ function App() {
         return true;
       }
       return false;
+      
     });
+    if(
+      updatedUsers.length === 0
+    )  alert ("Nobody with that name is currently an employee. Please clear search and try again.")
     setUsers([...updatedUsers]);
   },[originalUsers]);
 

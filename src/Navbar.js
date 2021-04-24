@@ -23,7 +23,7 @@ function Navbar(props) {
             name="text"
             className="form-control me-2"
             type="text"
-            placeholder="Input Name Here"
+            placeholder="Search Name Here"
             aria-label="Search"
           />
            <button className="btn btn-outline-success" type="submit">
