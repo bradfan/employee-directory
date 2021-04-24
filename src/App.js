@@ -16,7 +16,7 @@ function App() {
     });
   }, []);
 
-  const handleInputChange = useCallback((event) => {
+  const handleInputChange = useCallback((event)  => {
     event.preventDefault();
     console.log(event.target);
     console.log(event.target.value);
@@ -31,7 +31,7 @@ function App() {
       return false;
     });
     setUsers([...updatedUsers]);
-  });
+  },[originalUsers]);
 
   const handleSort = useCallback((event) => {
     event.preventDefault();
@@ -48,7 +48,7 @@ function App() {
 
     console.log(event.target.value);
     setUsers([...sortDate]);
-  });
+  },[originalUsers]);
 
   return (
     <div>

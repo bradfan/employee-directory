@@ -27,7 +27,7 @@ function Navbar(props) {
             aria-label="Search"
           />
            <button className="btn btn-outline-success" type="submit">
-            Search Name
+            Clear Search
           </button>
           <button 
             onClick={(event) => {
@@ -35,7 +35,7 @@ function Navbar(props) {
             props.handleSort(event);
           }}
           className="btn btn-outline-success" type="submit">
-            Sort by DOB
+            Sort by Age
           </button>
         </form>
       </div>

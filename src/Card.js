@@ -25,7 +25,7 @@ function Card(props) {
             Name: {props.empName.first} {props.empName.last}{" "}
           </h5>
           <p className="card-text">
-            A proud employee of &#169;StraightOuttaLotion Web Development
+            A proud employee of Your Company
           </p>
         </div>
         <ul className="list-group list-group-flush">
