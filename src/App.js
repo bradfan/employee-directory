@@ -16,43 +16,50 @@ function App() {
     });
   }, []);
 
-  const handleInputChange = useCallback((event)  => {
-    event.preventDefault();
-    console.log(event.target);
-    console.log(event.target.value);
+  const handleInputChange = useCallback(
+    (event) => {
+      event.preventDefault();
+      console.log(event.target);
+      console.log(event.target.value);
 
-    const updatedUsers = originalUsers.filter((user) => {
-      if (
-        (user.name.first + " " + user.name.last).indexOf(event.target.value) !==
-        -1
-      ) {
-        return true;
-      }
-      return false;
-      
-    });
-    if(
-      updatedUsers.length === 0
-    )  alert ("Nobody with that name is currently an employee. Please clear search and try again.")
-    setUsers([...updatedUsers]);
-  },[originalUsers]);
+      const updatedUsers = originalUsers.filter((user) => {
+        if (
+          (user.name.first + " " + user.name.last).indexOf(
+            event.target.value
+          ) !== -1
+        ) {
+          return true;
+        }
+        return false;
+      });
+      if (updatedUsers.length === 0)
+        alert(
+          "Nobody with that name is currently an employee. Please clear search and try again."
+        );
+      setUsers([...updatedUsers]);
+    },
+    [originalUsers]
+  );
 
-  const handleSort = useCallback((event) => {
-    event.preventDefault();
+  const handleSort = useCallback(
+    (event) => {
+      event.preventDefault();
 
-    const sortDate = originalUsers.sort((userA, userB) => {
-      const userADOB = new Date(userA.dob.date);
-      const userBDOB = new Date(userB.dob.date);
+      const sortDate = originalUsers.sort((userA, userB) => {
+        const userADOB = new Date(userA.dob.date);
+        const userBDOB = new Date(userB.dob.date);
 
-      if (userADOB < userBDOB) {
-        return -1;
-      }
-      return 1;
-    });
+        if (userADOB < userBDOB) {
+          return -1;
+        }
+        return 1;
+      });
 
-    console.log(event.target.value);
-    setUsers([...sortDate]);
-  },[originalUsers]);
+      console.log(event.target.value);
+      setUsers([...sortDate]);
+    },
+    [originalUsers]
+  );
 
   return (
     <div>
